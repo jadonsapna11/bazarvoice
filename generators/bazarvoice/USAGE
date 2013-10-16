@@ -1,0 +1,14 @@
+Name
+    bazarvoice - creates bazarvoice files
+
+Description:
+    This generator creates all files needed for bazarvoice integration.
+
+    ./script/generate bazarvoice <bazarvoice_key> <main_forum_id> [<api_key>]
+
+    Please add to head section of your layout file:
+      <%= javascript_include_tag 'bazarvoice' %>
+      <%= uservoice_config_javascript %>
+
+Example:
+    ./script/generate bazarvoice mypage 12345 myapikey

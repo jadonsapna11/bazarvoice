@@ -1,0 +1,82 @@
+= bazarvoice implementation for Ruby on Rails
+
+This adds {bazarvoice}[http://www.bazarvoice.com] support to your
+Rails application including single sign-on.
+
+== Installation
+
+=== As a gem
+  gem install bazarvoice
+
+=== As a Rails dependency
+  config.gem 'bazarvoice', :source => 'http://gemcutter.org'
+
+=== As a Rails plugin
+  ./script/plugin install http://github.com/iltempo/bazarvoice.git
+
+
+== Configuration
+
+Generate files for your app:
+  ./script/generate bazarvoice <key> <forum> [<api_key>]
+Where <key> is the bazarvoice account name and <forum> the id of your main forum.
+Find both settings in widgets section of the admin interface of bazarvoice.
+Your API key <api_key> can be found in the API section of the admin documentation.
+
+Default properties are stored in a file named bazarvoice.yml in the config
+directory of your Rails application. Make it fitting to your needs. Feel free to
+use erb expressions.
+
+Add javascript function and configuration to HTML HEAD section of your template file:
+  <%= bazarvoice_config_javascript %>
+
+You can override default bazarvoice settings in your view:
+  <%= bazarvoice_config_javascript(:alignment => 'right', :forum => 12983) %>
+
+
+== Single Sign-On
+
+Single sign-on authenticates your bazars automatically against the bazarvoice
+service. A second login is not needed any more.
+
+bazarvoice is allowing single sign-on starting from the Bronze plan.
+http://bazarvoice.com/signup?ref=nav
+
+To use single sign-on with on bazarvoice you have to set your api_key in 
+config/bazarvoice.yml. Find it on
+https://ACCOUNT.bazarvoice.com/admin2/docs#/legacy_api
+
+The bazar properties can be set via the :sso parameter.
+     <%= bazarvoice_config_javascript(:sso => {:guid => @current_bazar.id, :email => @current_bazar.email}) %>
+
+Parameter <em>:guid</em> should be unique identifier, for example the bazar id in your
+system. bazarvoice recommends setting <em>:email</em> parameter to enable bazars to get
+updates and notifications via email.
+See https://ACCOUNT.bazarvoice.com/admin2/docs#/sso for a list of parameters
+available.
+
+
+== Note on Patches/Pull Requests
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a
+  commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+
+
+==Author
+
+{Sapna Jadon}
+
+
+
+
+
+== Copyright
+
+Copyright (c) 2013
