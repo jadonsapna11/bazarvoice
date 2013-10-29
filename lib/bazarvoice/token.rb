@@ -3,7 +3,7 @@
 # service.
 #
 # Author::    Sapna J 
-# Copyright:: Copyright (c) 2013 il tempo
+# Copyright:: Copyright (c) 2013
 # License::   Distributes under the same terms as Ruby
 
 module Bazarvoice

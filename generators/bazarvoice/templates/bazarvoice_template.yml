@@ -1,8 +1,7 @@
 uservoice_options:
   # required
-  key: <%= args.first %>
-  host: <%= args.first %>.uservoice.com
-  forum: <%= args.second %>
+  api_server: "http://reviews.apitestcustomer.bazaarvoice.com/bvstaging/data"
+
   # optional
   showTab: true
   alignment: left
@@ -10,6 +9,7 @@ uservoice_options:
   text_color: white
   hover_color: "#06C"
   lang: en
+  num_items: 5
 
 uservoice_api:
-  api_key: <%= args.third %>
+  api_key: <%= args.first %>

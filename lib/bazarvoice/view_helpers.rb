@@ -1,10 +1,3 @@
-# This module holds all frontend helper methods
-# for bazarvoice in a Rails app.
-#
-# Author::    Alexander Greim  (mailto:alexxx@iltempo.de)
-# Copyright:: Copyright (c) 2010 il tempo
-# License::   Distributes under the same terms as Ruby
-
 module Bazarvoice
   module BazarvoiceViewHelpers
 
@@ -27,10 +20,10 @@ module Bazarvoice
 
       <<-EOS
         <script type="text/javascript">
-		$(document).ready(function() {
-		  $.ajaxSetup({ cache: true });
-		  $.getJSON(api_server+"/reviews.json?callback=?", 
-		   "apiversion=4.9&include=products,authors&filter=DisplayLocale:en_US&passkey=" + api_key + "&limit=" + num_items,
+		      $(document).ready(function() {
+		      $.ajaxSetup({ cache: true });
+		      $.getJSON(api_server+"/reviews.json?callback=?", 
+		      "apiversion=4.9&include=products,authors&filter=DisplayLocale:en_US&passkey=" + bazarvoice_configuration['bazarvoice_api']['api_key'] + "&limit=" + num_items,
 		    function(json){
 		      jQuery.each(json.Results, function(index, review) {
 			$("#module").append("<h1>"+review['Title']+"</h1>");
